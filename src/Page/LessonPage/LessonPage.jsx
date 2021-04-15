@@ -91,7 +91,7 @@ class LessonPage extends Component {
                     </div>
                     <Link
                       style={{ color: "#fff" }}
-                      to={{ pathname: `/book/${item.id}` }}
+                      to={{ pathname: `/book/${item.id}`, urlVideo: `${this.state.lessons[0].practice_video[0].url}` }}
                     >
                       Get start!
                     </Link>
