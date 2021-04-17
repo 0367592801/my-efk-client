@@ -15,13 +15,15 @@ class Header extends Component {
       backgroundPosition: "center",
       backgroundSize: "cover",
       // textAlign: "center",
-      padding: "100px 30px",
+      padding: "50px 30px",
       color: "white",
     };
     return (
       <React.Fragment>
         <div style={styleHeaderContent}>
-          <h1 style={{ color: "white" }}>{this.props.content}</h1>
+          <h1 style={{ color: "white", fontSize: "50px" }}>
+            {this.props.content}
+          </h1>
         </div>
       </React.Fragment>
     );

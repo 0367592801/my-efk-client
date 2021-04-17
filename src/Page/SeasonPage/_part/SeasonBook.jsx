@@ -21,7 +21,7 @@ class SeasonBook extends Component {
             <Link to={`/lessons/${this.props.season.id}`}>
               <img
                 className="cover"
-                src={`${apiUrl}${this.props.season.season_img.url}`}
+                src={`${this.props.season.season_img[0].url}`}
                 alt=""
               />
             </Link>

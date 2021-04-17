@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import './supportedFile/Book.css';
-import { getDetailLesson, getPage } from '../Service/api';
-import { apiUrl } from '../const/apiUrl';
-import { SoundTwoTone } from '@ant-design/icons';
-import { soundManager } from 'soundmanager2';
-import Menu from './Menu';
-import Header from './Header';
-import Footer from './Footer';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import "./supportedFile/Book.css";
+import { getDetailLesson, getPage } from "../Service/api";
+import { apiUrl } from "../const/apiUrl";
+import { SoundTwoTone } from "@ant-design/icons";
+import { soundManager } from "soundmanager2";
+import Menu from "./Menu";
+import Header from "./Header";
+import Footer from "./Footer";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 
 class Book extends Component {
   constructor(props) {
@@ -93,45 +93,56 @@ class Book extends Component {
     return (
       <React.Fragment>
         <Menu />
-        <Header content='Lets go!' />
+        <Header content="Lets go!" />
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            margin: '30px 0px',
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            margin: "30px 0px",
           }}
         >
           {this.state.book !== null ? (
             <React.Fragment>
               <span
                 style={{
-                  display: this.state.pageIndex === 0 ? 'none' : 'block',
+                  display: this.state.pageIndex === 0 ? "none" : "block",
                 }}
-                className='button'
+                className="button"
                 onClick={() => this.priviouPage()}
               >
-                <ArrowLeftIcon style={{ fontSize: '60px' }} />
+                <img
+                  style={{ transform: "rotate(180deg)" }}
+                  src="/img/button.png"
+                  width="50px"
+                  height="50px"
+                />
               </span>
               {this.state.book.length > 0 ? (
                 <React.Fragment>
                   <div
                     style={{
-                      height: '800px',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      height: "800px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     {this.state.sounds !== null &&
                     this.state.sounds.length > 0 ? (
-                      <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          marginRight: "10px",
+                        }}
+                      >
                         {this.state.sounds.map((item, index) => {
                           return (
                             <SoundTwoTone
                               style={{
-                                marginBottom: '100px',
-                                fontSize: '32px',
+                                marginBottom: "100px",
+                                fontSize: "32px",
                               }}
                               key={index}
                               onClick={() => this.playSound(item)}
@@ -140,37 +151,38 @@ class Book extends Component {
                         })}
                       </div>
                     ) : (
-                      ''
+                      ""
                     )}
                     <img
                       // className="rotate"
-                      alt=''
-                      height='600px'
+                      alt=""
+                      height="800px"
                       src={
-                        this.state.book[this.state.pageIndex].image_background[0]
-                          .url
+                        this.state.book[this.state.pageIndex]
+                          .image_background[0].url
                       }
                     />
                   </div>
                   <span
                     style={{
+                      marginLeft: "40px",
                       display:
                         this.state.pageIndex === this.state.book.length - 1
-                          ? 'none'
-                          : 'block',
+                          ? "none"
+                          : "block",
                     }}
-                    className='button'
+                    className="button"
                     onClick={() => this.nextPage()}
                   >
-                    <ArrowRightIcon style={{ fontSize: '60px' }} />
+                    <img src="/img/button.png" width="50px" height="50px" />
                   </span>
                 </React.Fragment>
               ) : (
-                ''
+                ""
               )}
             </React.Fragment>
           ) : (
-            ''
+            ""
           )}
         </div>
         <Footer />

@@ -17,6 +17,7 @@ class Input extends Component {
         value={value}
         onChange={this.onChange}
         style={this.props.style}
+        autoComplete="off"
       />
     );
   }

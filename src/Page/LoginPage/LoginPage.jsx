@@ -29,6 +29,8 @@ class LoginPage extends Component {
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
+
+    console.log(this.props);
   }
 
   loginAccount = async () => {
@@ -180,13 +182,12 @@ class LoginPage extends Component {
               >
                 Password dosent match! Please enter again!
               </span>
-              <button
+              <input
                 className="button_login"
                 style={{ cursor: "pointer" }}
                 onClick={this.registerAccount}
-              >
-                Sign Up
-              </button>
+                value="Sign Up"
+              />
             </form>
           </div>
           <div className="form-container sign-in-container">
@@ -208,13 +209,13 @@ class LoginPage extends Component {
                 onKeyUp={this.handleKeyupLogin}
               />
               {/* <a href="#">Forgot your password?</a> */}
-              <button
+              <input
+                type="button"
                 className="button_login"
                 style={{ cursor: "pointer" }}
                 onClick={this.loginAccount}
-              >
-                Sign In
-              </button>
+                value="Sign In"
+              />
             </form>
           </div>
           <div className="overlay-container">
