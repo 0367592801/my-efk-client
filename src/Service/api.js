@@ -41,22 +41,7 @@ export function getPage(id) {
   return axios.get(`${apiUrl}/pages/${id}`);
 }
 
-export function getTasksFollowPageAPI(start, end) {
-  return axios.get(`http://localhost:3000/tasks?_start=${start}&_end=${end}`);
-}
-
-export function addTaskAPI(data) {
-  return axios.post(`http://localhost:3000/tasks`, data);
-}
-
-export function deleteTaskAPI(id) {
-  return axios.delete(`http://localhost:3000/tasks/${id}`);
-}
-
-export function updateTaskAPI(id, data) {
-  return axios.patch(`http://localhost:3000/tasks/${id}`, data);
-}
-
-export function discardTaskAPI(id, data) {
-  return axios.patch(`http://localhost:3000/tasks/${id}`, data);
+// get all 3d Model
+export function getAll3DModel() {
+  return axios.get(`${apiUrl}/model-3-ds`);
 }

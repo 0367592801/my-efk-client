@@ -13,6 +13,7 @@ import Menu from "./Component/Menu";
 import LessonPage from "./Page/LessonPage/LessonPage";
 import Book from "./Component/Book";
 import AddMultiPage from "./Page/AddMultiPage/AddMultiPage";
+import View3DScreenPage from "./Page/View3DScreenPage/View3DScreenPage";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,6 +43,9 @@ export default class App extends React.Component {
           </Route>
           <Route path="/addmultilpage">
             <AddMultiPage />
+          </Route>
+          <Route path="/3dview">
+            <View3DScreenPage />
           </Route>
         </Switch>
       </Router>

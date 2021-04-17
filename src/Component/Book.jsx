@@ -10,6 +10,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
+import ReactPlayer from "react-player";
 
 class Book extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Book extends Component {
       sounds: null,
       IdSoundPlaying: null,
       pressCount: 0,
+      playVideo: false,
     };
   }
 
@@ -88,8 +90,13 @@ class Book extends Component {
     await this.setState({ IdSoundPlaying: item.id });
   };
 
+  playVideo = async () => {
+    console.log("call video");
+    await this.setState({ playVideo: true });
+  };
+
   render() {
-    console.log(this.state);
+    console.log(this.props);
     return (
       <React.Fragment>
         <Menu />
@@ -102,7 +109,7 @@ class Book extends Component {
             margin: "30px 0px",
           }}
         >
-          {this.state.book !== null ? (
+          {this.state.playVideo === false ? (
             <React.Fragment>
               <span
                 style={{
@@ -118,11 +125,10 @@ class Book extends Component {
                   height="50px"
                 />
               </span>
-              {this.state.book.length > 0 ? (
+              {this.state.book !== null ? (
                 <React.Fragment>
                   <div
                     style={{
-                      height: "800px",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
@@ -153,15 +159,35 @@ class Book extends Component {
                     ) : (
                       ""
                     )}
-                    <img
-                      // className="rotate"
-                      alt=""
-                      height="800px"
-                      src={
-                        this.state.book[this.state.pageIndex]
-                          .image_background[0].url
-                      }
-                    />
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <img
+                        // className="rotate"
+                        alt=""
+                        height="800px"
+                        src={
+                          this.state.book[this.state.pageIndex]
+                            .image_background[0].url
+                        }
+                      />
+                      <span
+                        style={{
+                          display:
+                            this.state.pageIndex === this.state.book.length - 1
+                              ? "block"
+                              : "none",
+                          textAlign: "center",
+                        }}
+                        className="button"
+                      >
+                        <button
+                          className="big-button homebutton"
+                          style={{ marginTop: "50px" }}
+                          onClick={() => this.playVideo()}
+                        >
+                          Watch practice video
+                        </button>
+                      </span>
+                    </div>
                   </div>
                   <span
                     style={{
@@ -182,9 +208,14 @@ class Book extends Component {
               )}
             </React.Fragment>
           ) : (
-            ""
+            <ReactPlayer
+              url={`${this.props.history.location.urlVideo}`}
+              playing={true}
+              controls={true}
+            />
           )}
         </div>
+        )
         <Footer />
       </React.Fragment>
     );
