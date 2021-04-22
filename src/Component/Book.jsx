@@ -22,6 +22,7 @@ class Book extends Component {
       IdSoundPlaying: null,
       pressCount: 0,
       playVideo: false,
+      urlVideo: null,
     };
   }
 
@@ -36,7 +37,7 @@ class Book extends Component {
   getPages = async (id) => {
     try {
       let res = await getDetailLesson(id);
-      await this.setState({ book: res.data.pages });
+      await this.setState({ book: res.data.pages, urlVideo: res.data.practice_video[0].url });
       console.log(res);
       await this.getSounds(res.data.pages[0].id);
     } catch (e) {}
@@ -209,7 +210,7 @@ class Book extends Component {
             </React.Fragment>
           ) : (
             <ReactPlayer
-              url={`${this.props.history.location.urlVideo}`}
+              url={this.state.urlVideo ? `${this.state.urlVideo}` : ''}
               playing={true}
               controls={true}
             />

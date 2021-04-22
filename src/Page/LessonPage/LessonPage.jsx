@@ -86,12 +86,12 @@ class LessonPage extends Component {
                         backgroundColor: "white",
                       }}
                     >
-                      <h4 style={{ color: "#9b9b9b" }}>{item.description}</h4>
-                      <h1 style={{ color: "#9b9b9b" }}>{item.lesson_name}</h1>
+                      <h1 style={{ color: "#9b9b9b" }}>{item.description}</h1>
+                      <h4 style={{ color: "#9b9b9b" }}>{item.lesson_name}</h4>
                     </div>
                     <Link
-                      style={{ color: "#fff" }}
-                      to={{ pathname: `/book/${item.id}`, urlVideo: `${this.state.lessons[0].practice_video[0].url}` }}
+                      style={{ color: "#fff", fontSize:'30px' }}
+                      to={{ pathname: `/book/${item.id}` }}
                     >
                       Get start!
                     </Link>

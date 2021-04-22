@@ -94,7 +94,7 @@ class Menu extends Component {
         ) : (
           ""
         )}
-        <React.Fragment>
+        {/* <React.Fragment>
           <input type="checkbox" id="openmenu" className="hamburger-checkbox" />
           <div className="hamburger-icon">
             <label for="openmenu" id="hamburger-label">
@@ -148,7 +148,7 @@ class Menu extends Component {
             </nav>
           </div>
           <div className="body-text">{this.props.children}</div>
-        </React.Fragment>
+        </React.Fragment> */}
       </div>
     );
   }

@@ -5,13 +5,13 @@ import React, {
   useCallback,
   useContext,
   useMemo,
-} from "react";
-import * as THREE from "three";
-import OrbitControls from "../utils/OrbitControls";
-import "../utils/three";
-import GLTFLoaer from "three-gltf-loader";
-import getObjectFromBitData from "../utils/gltf";
-import { withRouter } from "react-router-dom";
+} from 'react';
+import * as THREE from 'three';
+import OrbitControls from '../utils/OrbitControls';
+// import "../utils/three";
+import GLTFLoaer from 'three-gltf-loader';
+import getObjectFromBitData from '../utils/gltf';
+import { withRouter } from 'react-router-dom';
 
 const View3DScreen = ({ sourceModel }, props) => {
   let [scene] = useState(new THREE.Scene());
@@ -19,13 +19,15 @@ const View3DScreen = ({ sourceModel }, props) => {
 
   const getCamera = (width, height) => {
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.01, 2000);
-    camera.position.set(200, 200, 200);
+    camera.position.set(20, 20, 20);
     return camera;
   };
+
   const initScene = () => {
     const width = sceneRef.current.offsetWidth;
     const height = sceneRef.current.offsetHeight;
     const camera = getCamera(width, height);
+    console.log(camera);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
 
     // controls
@@ -36,9 +38,9 @@ const View3DScreen = ({ sourceModel }, props) => {
 
     // scene lights, background
     scene.background = new THREE.Color(0xf1f3f4);
-    console.log("scene", scene);
-    const ambientLight = new THREE.AmbientLight("#999");
-    const pointLight = new THREE.PointLight("white", 0.5);
+    console.log('scene', scene);
+    const ambientLight = new THREE.AmbientLight('#999');
+    const pointLight = new THREE.PointLight('white', 0.5);
     pointLight.position.set(100, 100, 100);
     scene.add(ambientLight, pointLight, camera);
     var light = new THREE.DirectionalLight(0xffffff);
@@ -75,7 +77,7 @@ const View3DScreen = ({ sourceModel }, props) => {
       raycaster.setFromCamera(mouse, camera);
 
       const object3D = scene.children.find(
-        (child) => child.type === "Object3D"
+        (child) => child.type === 'Object3D'
       );
       let meshes = [];
       if (object3D) {
@@ -93,7 +95,7 @@ const View3DScreen = ({ sourceModel }, props) => {
       }
     }
 
-    window.addEventListener("mousedown", onMouseDown, false);
+    window.addEventListener('mousedown', onMouseDown, false);
   };
 
   const initGLTF = () => {
@@ -118,10 +120,10 @@ const View3DScreen = ({ sourceModel }, props) => {
   }, []);
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
+    <div style={{ width: '100%', height: '100%' }}>
       <div
-        id="b3-scene"
-        style={{ width: "100%", height: "calc(100vh)", overflow: "hidden" }}
+        id='b3-scene'
+        style={{ width: '100%', height: 'calc(100vh)', overflow: 'hidden' }}
         ref={sceneRef}
       ></div>
     </div>
