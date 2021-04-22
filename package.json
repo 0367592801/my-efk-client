@@ -2,6 +2,9 @@
   "name": "user-client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
     "@material-ui/core": "^4.11.3",
