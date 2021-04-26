@@ -14,6 +14,7 @@ import LessonPage from "./Page/LessonPage/LessonPage";
 import Book from "./Component/Book";
 import AddMultiPage from "./Page/AddMultiPage/AddMultiPage";
 import View3DScreenPage from "./Page/View3DScreenPage/View3DScreenPage";
+import ABCGame from "./Component/Game/ABCGame";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -46,6 +47,9 @@ export default class App extends React.Component {
           </Route>
           <Route path="/3dview">
             <View3DScreenPage />
+          </Route>
+          <Route path="/ABCGame">
+            <ABCGame />
           </Route>
         </Switch>
       </Router>

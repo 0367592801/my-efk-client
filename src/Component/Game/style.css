@@ -1,0 +1,66 @@
+.div-game-abc {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 100px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 100vh;
+}
+.div-letter {
+  background-image: url("./img/banana.png");
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-text-stroke: 3px rgb(255, 255, 255);
+  -webkit-animation: fill 0.5s infinite alternate;
+  margin: 10px 10px;
+}
+.div-letter:hover {
+  color: "red";
+  cursor: pointer;
+}
+.div-title-game {
+  margin: 20px auto;
+  width: 70%;
+  height: 500px;
+  background-image: url("./img/abcgametitle.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.div-start {
+  background-image: url("./img/start_up.png");
+  background-size: cover;
+  background-position: center;
+  height: 104px;
+  width: 90px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.div-start:hover {
+  background-image: url("./img/start_over.png");
+  cursor: pointer;
+}
+.timer {
+  width: 269px;
+  height: 106px;
+  background-image: url("./img/timer.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px !important;
+  font-weight: bold;
+}
+.div-timer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -61,11 +61,6 @@ class Menu extends Component {
                 </li>
                 <li>
                   <Link>
-                    <span>About us</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link>
                     <span>News</span>
                   </Link>
                 </li>
