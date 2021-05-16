@@ -8,23 +8,34 @@ class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%", overflow: "hidden" }}>
           <img src="/img/footer.PNG" width="100%" />
           <div
-            style={{ backgroundColor: "rgba(118,178,39,1)", padding: "0 20px" }}
+            style={{
+              backgroundColor: "rgba(118,178,39,1)",
+              padding: "0 20px",
+              fontSize: "50px",
+            }}
           >
             <div className="row">
-              <p className="col-lg-9 col-md-8 mb-5 mb-md-0">
-                <span className="text-white">EnglishForKid Center</span>-
+              <span
+                className="col-lg-9 col-md-8 mb-md-0"
+                style={{ fontSize: "15px" }}
+              >
+                <span className="text-white" style={{ fontSize: "15px" }}>
+                  EnglishForKid Center
+                </span>
+                -
                 <a
                   rel="nofollow"
                   target="_parent"
                   href="https://www.facebook.com/thuy.minh22/"
                   className="text-white"
+                  style={{ color: "black" }}
                 >
                   Phan Tuấn Minh
                 </a>
-              </p>
+              </span>
               <div className="col-lg-3 col-md-4 text-right">
                 <a
                   rel="nofollow"

@@ -21,16 +21,16 @@ class SeasonBook extends Component {
             <Link to={`/lessons/${this.props.season.id}`}>
               <img
                 className="cover"
-                src={`${this.props.season.season_img[0].url}`}
+                src={`${apiUrl}${this.props.season?.season_img?.url}`}
                 alt=""
               />
             </Link>
 
             <div className="spine"></div>
           </div>
-          <h4 style={{ textAlign: "center" }}>
+          <h2 style={{ textAlign: "center" }}>
             {this.props.season.season_name}
-          </h4>
+          </h2>
         </div>
       </React.Fragment>
     );

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getSeason } from "../../Service/api";
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
+import Swal from "sweetalert2";
 // const LessonModal = (props) => {
 //   let style = {
 //     height: "100vh",
@@ -67,7 +68,7 @@ class LessonPage extends Component {
                   <div
                     key={index}
                     style={{
-                      width: "25%",
+                      width: "300px",
                       display: "flex",
                       flexDirection: "column",
 
@@ -89,12 +90,34 @@ class LessonPage extends Component {
                       <h1 style={{ color: "#9b9b9b" }}>{item.description}</h1>
                       <h4 style={{ color: "#9b9b9b" }}>{item.lesson_name}</h4>
                     </div>
-                    <Link
-                      style={{ color: "#fff", fontSize:'30px' }}
-                      to={{ pathname: `/book/${item.id}` }}
+                    <h3
+                      className="get-start-lesson"
+                      // to={{ pathname: `/book/${item.id}` }}
+                      onClick={() => {
+                        console.log("ok");
+                        Swal.fire({
+                          title:
+                            "<strong>Choose the part that you want to learn.</strong>",
+                          icon: "question",
+                          html:
+                            "<a style='color:green' href='" +
+                            `/book/${item.id}` +
+                            "'>Read book.</a><br/>" +
+                            "<a style='color:red' href='" +
+                            `/video/${item.id}` +
+                            "'>Watch practice video of this lesson.</a><br/>" +
+                            "<a style='color:blue' href='" +
+                            `/ABCGame` +
+                            "'}}>Play game.</a><br/>" +
+                            "<a style='color:purple' href='" +
+                            `/test/${item.test_exam}` +
+                            "'>Do test exam.</a><br/>",
+                          showCancelButton: true,
+                        });
+                      }}
                     >
                       Get start!
-                    </Link>
+                    </h3>
                   </div>
                 );
               })}

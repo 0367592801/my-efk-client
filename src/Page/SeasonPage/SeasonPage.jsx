@@ -45,6 +45,7 @@ class SeasonPage extends Component {
                   justifyContent: "space-around",
                   alignItems: "center",
                   marginBottom: "50px",
+                  flexWrap: "wrap",
                 }}
               >
                 {(this.state.allSeason || []).map((item, index) => {

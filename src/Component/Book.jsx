@@ -27,6 +27,7 @@ class Book extends Component {
   }
 
   componentDidMount() {
+    this.setState({});
     this.getPages(this.props.match.params.lessonId);
   }
 
@@ -37,7 +38,10 @@ class Book extends Component {
   getPages = async (id) => {
     try {
       let res = await getDetailLesson(id);
-      await this.setState({ book: res.data.pages, urlVideo: res.data.practice_video[0].url });
+      await this.setState({
+        book: res.data.pages,
+        urlVideo: res.data.practice_video.url,
+      });
       console.log(res);
       await this.getSounds(res.data.pages[0].id);
     } catch (e) {}
@@ -63,8 +67,8 @@ class Book extends Component {
   };
 
   playSound = async (item) => {
-    console.log(item.sound_file[0]);
-    console.log(item.sound_file[0].url);
+    console.log(item.sound_file);
+    console.log(item.sound_file.url);
     if (this.state.IdSoundPlaying !== item.id) {
       soundManager.stopAll();
       await this.setState({ pressCount: 0 });
@@ -73,7 +77,7 @@ class Book extends Component {
         onready: function () {
           let audio = soundManager.createSound({
             id: item.id,
-            url: `${item.sound_file[0].url}`,
+            url: `${apiUrl}${item.sound_file?.url}`,
           });
           audio.play();
           console.log(audio);
@@ -93,11 +97,12 @@ class Book extends Component {
 
   playVideo = async () => {
     console.log("call video");
+    soundManager.stopAll();
     await this.setState({ playVideo: true });
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <React.Fragment>
         <Menu />
@@ -165,10 +170,10 @@ class Book extends Component {
                         // className="rotate"
                         alt=""
                         height="800px"
-                        src={
-                          this.state.book[this.state.pageIndex]
-                            .image_background[0].url
-                        }
+                        src={`${apiUrl}${
+                          this.state.book[this.state.pageIndex].image_background
+                            .url
+                        }`}
                       />
                       <span
                         style={{
@@ -210,7 +215,9 @@ class Book extends Component {
             </React.Fragment>
           ) : (
             <ReactPlayer
-              url={this.state.urlVideo ? `${this.state.urlVideo}` : ''}
+              height="800px"
+              width="auto"
+              url={this.state.urlVideo ? `${apiUrl}${this.state.urlVideo}` : ""}
               playing={true}
               controls={true}
             />

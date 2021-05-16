@@ -14,7 +14,9 @@ import LessonPage from "./Page/LessonPage/LessonPage";
 import Book from "./Component/Book";
 import AddMultiPage from "./Page/AddMultiPage/AddMultiPage";
 import View3DScreenPage from "./Page/View3DScreenPage/View3DScreenPage";
+import Video from "./Component/Video";
 import ABCGame from "./Component/Game/ABCGame";
+import TestExam from "./Component/TestExam";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,6 +44,9 @@ export default class App extends React.Component {
           <Route path="/book/:lessonId">
             <Book />
           </Route>
+          <Route path="/video/:lessonId">
+            <Video />
+          </Route>
           <Route path="/addmultilpage">
             <AddMultiPage />
           </Route>
@@ -50,6 +55,9 @@ export default class App extends React.Component {
           </Route>
           <Route path="/ABCGame">
             <ABCGame />
+          </Route>
+          <Route path="/test/:testId">
+            <TestExam />
           </Route>
         </Switch>
       </Router>

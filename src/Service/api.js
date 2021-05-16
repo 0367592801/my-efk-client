@@ -45,3 +45,8 @@ export function getPage(id) {
 export function getAll3DModel() {
   return axios.get(`${apiUrl}/model-3-ds`);
 }
+
+//get test exam
+export function getTestExam(id) {
+  return axios.get(`${apiUrl}/test-exams/${id}`);
+}
